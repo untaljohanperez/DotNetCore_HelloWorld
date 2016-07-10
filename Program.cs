@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ConsoleApplication
 {
@@ -23,24 +26,27 @@ namespace ConsoleApplication
 
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection service)
+        {
+                service.AddMvc();
+        }
+
         public void Configure(IApplicationBuilder app)
         {
-            app.Use(async (context, next) => 
+            app.UseMvc();
+        }
+    }
+
+    public class HelloWorldController
+    {
+        [HttpGet("api/helloworld")]
+        public object HelloWorld()
+        {
+            return new
             {
-                await context.Response.WriteAsync("Pre Processing");
-
-                await next();
-
-                await context.Response.WriteAsync("<h1>Post Processing</h1>");
-            });
-
-            app.Run(async (context) => 
-            {
-                await context.Response.WriteAsync(
-                    "Hello World Tertulia Inc The time is : " 
-                    + DateTime.Now.ToString("hh:mm:ss tt") 
-                );
-            });
+                message = "Hello World Tertulia Inc",
+                time = DateTime.Now
+            };
         }
     }   
 }
