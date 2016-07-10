@@ -16,6 +16,7 @@ namespace ConsoleApplication
            // Console.WriteLine("Hello World Tertulia Company!");
 
            var host = new WebHostBuilder()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();
@@ -37,7 +38,7 @@ namespace ConsoleApplication
         }
     }
 
-    public class HelloWorldController
+    public class HelloWorldController : Controller
     {
         [HttpGet("api/helloworld")]
         public object HelloWorld()
@@ -47,6 +48,15 @@ namespace ConsoleApplication
                 message = "Hello World Tertulia Inc",
                 time = DateTime.Now
             };
+        }
+        
+        [HttpGet("helloworld")]
+        public ActionResult HelloworldMvc()
+        {
+            ViewBag.Message = "Hello World Tertulia Inc.";
+            ViewBag.Time = DateTime.Now;
+
+            return View("helloworld");
         }
     }   
 }

@@ -854,6 +854,20 @@
           "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "1.0.0",
+          "System.AppContext": "4.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -3898,6 +3912,19 @@
         "lib/net451/Microsoft.Extensions.Configuration.EnvironmentVariables.xml",
         "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
         "lib/netstandard1.3/Microsoft.Extensions.Configuration.EnvironmentVariables.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/1.0.0": {
+      "sha512": "MO7XtmLiqnpgVTX34uzFPvIS7jPmBUGLN0MP5MsYu6CqYTIs90ULjtrV5TegH5mTqKTXWjZRGXL26R6apTyc4w==",
+      "type": "package",
+      "path": "Microsoft.Extensions.Configuration.FileExtensions/1.0.0",
+      "files": [
+        "Microsoft.Extensions.Configuration.FileExtensions.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.Configuration.FileExtensions.nuspec",
+        "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/net451/Microsoft.Extensions.Configuration.FileExtensions.xml",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/netstandard1.3/Microsoft.Extensions.Configuration.FileExtensions.xml"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/1.0.0": {
@@ -8929,7 +8956,8 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
-      "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0"
+      "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
+      "Microsoft.Extensions.Configuration.FileExtensions >= 1.0.0"
     ],
     ".NETCoreApp,Version=v1.0": [
       "Microsoft.NETCore.App >= 1.0.0"
